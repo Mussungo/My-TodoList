@@ -18,11 +18,21 @@
 
 # Build Setup
 
-```
-# Install dependencies
-npm install
+<p>Clone this repository</p>
 
-# Serve at localhost:5157
+```
+npm clone https://github.com/Mussungo/My-TodoList.git
+```
+
+<p>Install all dependencies</p>
+
+```
+npm install
+```
+
+<p>Run locally and Start organizing youe activities</p>
+
+```
 npm run dev
 ```
 
