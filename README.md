@@ -1,6 +1,6 @@
 # MyTodoList App 📝
 
-<p>organize your activities in just one click</p>
+<p>organize your activities and create new challenges</p>
 
 ## Screenshot
 ![projectscreenshot](https://user-images.githubusercontent.com/110233070/196476856-b25a7980-0bc8-45fc-9505-997914f10169.png)
