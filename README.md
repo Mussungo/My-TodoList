@@ -2,6 +2,9 @@
 
 <p>organize your activities in just one click</p>
 
+## Screenshot
+![projectscreenshot](https://user-images.githubusercontent.com/110233070/196476856-b25a7980-0bc8-45fc-9505-997914f10169.png)
+
 # Orverview
 
 <p>This is a super simple Todo App that use the basics React concepts, but really useful to test up your REACT kwoledge</p>
