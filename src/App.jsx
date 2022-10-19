@@ -5,6 +5,7 @@ import { ClipboardText } from 'phosphor-react'
 import { Task } from './components/Task'
 import { useState } from 'react'
 import { nanoid } from "nanoid"
+import { render } from 'react-dom'
 
 export function App() {
   const [tasks, setTasks] = useState([])
@@ -46,31 +47,41 @@ export function App() {
     setCreatedTaskCount(createdTaskCount - 1)
   }
 
+  function renderTask() {
+    if(createdTaskCount > 0){
+      return(
+        tasks.map(task => {
+          return(
+            <Task key={task.id} taskText={task.taskText} isComplete={task.isComplete} handleCheckedChange={() => handleCheckedChange(task.id)} handleDeleteTask={() => handleDeleteTask(task.id)}/>
+          )
+        })
+      )
+    }else {
+      return(
+        <>
+          <ClipboardText size={56} color={'var(--gray-300)'}/>
+          <p><strong>Você ainda não tem tarefas cadastradas</strong></p>
+          <p>Crie tarefas e organize seus itens a fazer</p>
+        </>
+      )
+    }
+  }
+
   return(
     <>
       <Header />
-
       <div className={styles.taskContainer}>
         <form onSubmit={handleCreateNewTask}>
-          <input type="text" name='txt_task' value={newTask} onChange={handleNewTaskChange}/>
+          <input type="text" name='txt_task' placeholder='Adicione uma nova tarefa' value={newTask} onChange={handleNewTaskChange}/>
           <button type='submit'>Criar <strong>+</strong></button>
         </form>
-
+ 
         <div className={styles.taskWrapper}>
           <header>
             <p>Tarefas criadas <span>{ createdTaskCount }</span></p>
             <p>Concluidas <span>{ complete } de { createdTaskCount }</span></p>
           </header>
-          <div className={styles.taskList}>
-            {
-              
-              tasks.map(task => {
-                return(
-                  <Task key={task.id} taskText={task.taskText} isComplete={task.isComplete} handleCheckedChange={() => handleCheckedChange(task.id)} handleDeleteTask={() => handleDeleteTask(task.id)}/>
-                )
-              })
-            }
-          </div>
+          <div className={styles.taskList}>{renderTask()}</div>
         </div>
       </div>
     </>

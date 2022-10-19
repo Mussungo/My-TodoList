@@ -21,6 +21,7 @@ form input{
   border: none;
   border-radius: 6px;
   outline: 1px solid var(--gray-700);
+  text-indent: 1rem;
 }
 
 form button {
